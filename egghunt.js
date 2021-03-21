@@ -47,7 +47,7 @@
 
 var egghunt = {
     egghunt: this,
-    neggs: 4,
+    neggs: 7,
     success: "easter-egg-hunt",
     basetime: 1585526400,
     cookiename: "eehr",
