@@ -64,7 +64,7 @@ var egghunt = {
         let eehr = this.readCookie(this.cookiename);
         let now = Date.now() - this.basetime;
         let alleggs = 2 ** this.neggs - 1;
-        let nice = ["Nice!", "Well done!", "Fabulous!", "Good eye!", "Way to go!"]
+        let nice = ["Super!", "Toll!", "Wunderbar!", "Gut gemacht!", "Großartig!"]
         nice = nice[Math.floor(Math.random() * nice.length)]
 
         eggnumber = 1 << eggnumber;
@@ -72,14 +72,14 @@ var egghunt = {
         if (eehr.length <= 0) {
             // first egg found
             this.cookieEgg(eggnumber, now, now, 1)
-            this.showPopUp(nice + "<br>You found your first egg!");
+            this.showPopUp(nice + "<br>Du hast das erste Osterei gefunden!");
         } else {
             // subsequent egg found
             // console.log(eehr);
             [eggsfound, start, end, count] = eehr.split(',');
             // console.log(eggsfound, eggnumber, eggsfound | eggnumber, eggsfound | eggnumber);
             if (eggsfound & eggnumber) {
-                this.showPopUp("You already found this egg.");
+                this.showPopUp("Dieses Osterei hattest Du bereits gefunden.");
             } else {
                 // console.log(eggsfound, eggnumber, eggsfound | eggnumber);
                 eggsfound = eggsfound | eggnumber;
@@ -90,7 +90,7 @@ var egghunt = {
                         this.encode(this.msScore());
                 } else {
                     let msg = nice + "<br>";
-                    msg += "You now have " + count + " of the " + this.neggs + " eggs.";
+                    msg += "Du hast nun " + count + " von " + this.neggs + " Ostereiern.";
                     this.showPopUp(msg);
                 }
             }
@@ -166,20 +166,20 @@ var egghunt = {
             if (minutes > 0) {
                 score += minutes;
                 if (minutes === 1) {
-                    score += " minute";
+                    score += " Minute";
                 } else {
-                    score += " minutes";
+                    score += " Minuten";
                 }
             }
             if (seconds > 0) {
                 if (minutes > 0) {
-                    score += " and ";
+                    score += " und ";
                 }
                 score += seconds;
                 if (seconds === 1) {
-                    score += " second";
+                    score += " Sekunde";
                 } else {
-                    score += " seconds";
+                    score += " Sekunden";
                 }
             }
             let div = document.getElementById("eggscore");
